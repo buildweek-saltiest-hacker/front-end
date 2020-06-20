@@ -15,7 +15,7 @@ function LogIn (){
       console.log(data)
     }
     return (
-<div>
+<div className="container">
     <header>
 <h1> The Salty Hacker </h1>
     </header>
