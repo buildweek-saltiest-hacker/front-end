@@ -1,5 +1,4 @@
 import React, {createContext, useEffect, useState} from 'react';
-import axiosWithAuth from '../utils/axiosWithAuth';
 import Test from '../data/data';
 
 
