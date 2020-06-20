@@ -1,10 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 import { useForm } from "react-hook-form";
-import { Link } from  'react-router-dom'
-import LogIn from './LogIn';
-import Home from './Home';
+
+
 
  function SignUp (){
     const {register, handleSubmit, errors } = useForm();
@@ -16,14 +13,7 @@ import Home from './Home';
         <header> 
                 <h1> The Salty Hacker </h1>
     </header>
-    <nav>
-        <ul>
-            <Link to="/home"> <li> Home  </li> </Link>
-            <Link to="/login"> <li> Log in</li> </Link>
-            <Link to="/signup"> <li> Sign up</li> </Link>
-
-        </ul>
-    </nav>
+   
         
       <div style={{display:"flex", justifyContent:"center"}}>
         <h1 style={{position:"absolute",paddingBottom:"70px", fontSize:"2.5rem"}}> Sign Up</h1>

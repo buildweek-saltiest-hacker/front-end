@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import TestingData from './components/test';
 import { Link, Route, BrowserRouter} from  'react-router-dom'
 import LogIn from './components/LogIn';
 import SignUp  from './components/SignUp'
@@ -21,7 +20,6 @@ function App() {
      </ul>
  </nav>
 
- <TestingData/>
     <BrowserRouter>
     <Route exact path="/home"> <Home /> </Route>
    <Route exact path="/login"> <LogIn /> </Route>
