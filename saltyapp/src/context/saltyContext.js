@@ -1,6 +1,5 @@
 import React, {createContext, useEffect, useState} from 'react';
-import Test from '../data/data';
-
+import axiosWithAuth from '../utils/axiosWithAuth';
 
  export const SaltyContext = createContext();
 
@@ -14,12 +13,14 @@ export const SaltyProvider = (props) => {
     useEffect(() => {
 
 
-    //   axiosWithAuth()
-    //   .get()
-    //   .then()
-    //   .catch()
+      axiosWithAuth()
+      .get("/api/actions/comment")
+      .then(res =>{
+          console.log(res.data)
+      })
+      .catch(err => console.error("ERROR", err))
 
-    setValue(Test);
+
 
         
     }, []);
