@@ -10,7 +10,7 @@ function LogIn (e){
     const [loginCredentials, setLoginCredentials] = useState({});
    
     const onSubmit = data => {
-     setLoginCredentials: {...loginCredentials, }
+     setLoginCredentials( {...loginCredentials, [data.target.name]: data.target.value})
     }
 
     axios.post("http://salty-hackers-ls.herokuapp.com/api/auth/login", loginCredentials)
