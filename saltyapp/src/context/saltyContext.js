@@ -1,6 +1,5 @@
 import React, {createContext, useEffect, useState} from 'react';
-import Test from '../data/data';
-
+import axiosWithAuth from '../utils/axiosWithAuth';
 
  export const SaltyContext = createContext();
 
@@ -8,18 +7,18 @@ export const SaltyProvider = (props) => {
 
     const [value, setValue] = useState([]);
       
-    
-
-    
     useEffect(() => {
 
 
-    //   axiosWithAuth()
-    //   .get()
-    //   .then()
-    //   .catch()
+      axiosWithAuth()
+      .get("http://salty-hackers-ls.herokuapp.com")
+      .then(res =>{
+          console.log(res);
+          setValue(res)
+      })
+      .catch(err => console.error("ERROR", err))
 
-    setValue(Test);
+
 
         
     }, []);

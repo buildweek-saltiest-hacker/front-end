@@ -1,15 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useForm } from "react-hook-form";
+import axios from 'axios';
 
 
 
-
-function LogIn (){
+function LogIn (e){
 
     const {register, handleSubmit, errors } = useForm();
+    const [loginCredentials, setLoginCredentials] = useState({});
+   
     const onSubmit = data => {
-      console.log(data)
+     setLoginCredentials( {...loginCredentials, [data.target.name]: data.target.value})
     }
+
+    axios.post("http://salty-hackers-ls.herokuapp.com/api/auth/login", loginCredentials)
+    .then(res => {
+      localStorage.setItem("token", res.data.payload);
+        this.props.history.push("/user");
+        console.log(res);
+    })  
+    .catch(err =>
+      console.error("bk: Login.js: login: err.message: ", err.message)
+    );
+
     return (
 <div>
    
@@ -18,10 +31,10 @@ function LogIn (){
   
         <form onSubmit={handleSubmit(onSubmit)}>
           
-        <input style={{ width:"120%", height:"30px",marginTop:"45%"}} type="text" placeholder="Email" name="email" ref={register({required:"Email is a required field", minLength:{value:5, message:"Must be at least 5 characters"}})} />
+        <input style={{ width:"120%", height:"30px",marginTop:"45%"}} value={} type="text" placeholder="Email" name="email" ref={register({required:"Email is a required field", minLength:{value:5, message:"Must be at least 5 characters"}})} />
     {errors.email && <p> {errors.email.message}</p>}
   
-    <input style={{ width:"120%", height:"30px",marginTop:"10%" }}  type="password" placeholder="Password" name="password"   ref={register({required:"Email is a required field", minLength:{value:5, message:"Must be at least 5 characters"}})}/>
+    <input style={{ width:"120%", height:"30px",marginTop:"10%" }} value={}  type="password" placeholder="Password" name="password"   ref={register({required:"Email is a required field", minLength:{value:5, message:"Must be at least 5 characters"}})}/>
    {/* <Link to="/signup"><h6> Don't have an account? Click here to sign up.</h6> </Link>  */}
   
     {errors.password && <p> {errors.password.message}</p>}

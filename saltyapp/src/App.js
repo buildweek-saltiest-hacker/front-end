@@ -1,9 +1,11 @@
 import React from 'react';
 import './App.css';
-import { Link, Route, BrowserRouter} from  'react-router-dom';
+import { Link, Route, Switch} from  'react-router-dom';
 import LogIn from './components/LogIn';
 import SignUp  from './components/SignUp';
 import Home from './components/Home';
+import User from './components/User';
+import SaltyContent from './components/SaltyContent';
 
 function App() {
   return (
@@ -20,11 +22,13 @@ function App() {
      </ul>
  </nav>
 
-
-    <Route exact path="/home"> <Home /> </Route>
-   <Route exact path="/login"> <LogIn /> </Route>
-   <Route exact path="/signup"> <SignUp/> </Route>
-
+<Switch> 
+    <Route exact path="/home" component={Home} /> 
+   <Route exact path="/login" component={LogIn} />
+   <Route component={LogIn} />
+   <Route exact path="/signup" component={SignUp}/> 
+   <User exact path="/user" component={SaltyContent} />
+</Switch>
 
     </div>
   );
