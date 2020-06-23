@@ -6,9 +6,13 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 export const SaltyProvider = (props) => {
 
     const [value, setValue] = useState([]);
+
+    const [credentials, setCredentials] = useState([{
+        username: "",
+        password: ""
+    }])
       
     useEffect(() => {
-
 
       axiosWithAuth()
       .get("http://salty-hackers-ls.herokuapp.com")
@@ -24,7 +28,7 @@ export const SaltyProvider = (props) => {
     }, []);
 
     return (
-        <SaltyContext.Provider value={value}>
+        <SaltyContext.Provider value={[value, credentials, setCredentials]}>
             {props.children}
         </SaltyContext.Provider>
     );
