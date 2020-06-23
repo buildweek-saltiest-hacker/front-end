@@ -15,7 +15,7 @@ export const SaltyProvider = (props) => {
     useEffect(() => {
 
       axiosWithAuth()
-      .get("http://salty-hackers-ls.herokuapp.com")
+      .get("https://salty-hackers-ls.herokuapp.com")
       .then(res =>{
           console.log(res);
           setValue(res)

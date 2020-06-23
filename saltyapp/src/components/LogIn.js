@@ -1,18 +1,21 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import {SaltyContext} from '../context/saltyContext';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 
 
 
-function LogIn (e){
+function LogIn (){
 
     const {register, handleSubmit, errors } = useForm();
-    const [loginCredentials, setLoginCredentials] = useState({});
+    const [credentials, setCredentials] = useContext(SaltyContext);
     const [userName, setUsername] = useState([]);
     const [password, setPassword]= useState([]);
    
-    const onSubmit = data => {
-     setLoginCredentials( {...loginCredentials, [data.target.name]: data.target.value})
+    const onSubmit = e => {
+      e.preventDefault();
+
+     setCredentials( user => [...user, {username: userName, password: password}])
     }
 
 
@@ -27,7 +30,7 @@ const updatePassword = (e) => {
 }
 
 
-    axios.post("http://salty-hackers-ls.herokuapp.com/api/auth/login", loginCredentials)
+    axios.post("https://salty-hackers-ls.herokuapp.com/api/auth/login", credentials)
     .then(res => {
       localStorage.setItem("token", res.data.payload);
         this.props.history.push("/user");
