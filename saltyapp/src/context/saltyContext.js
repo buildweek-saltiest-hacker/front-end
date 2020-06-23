@@ -7,16 +7,14 @@ export const SaltyProvider = (props) => {
 
     const [value, setValue] = useState([]);
       
-    
-
-    
     useEffect(() => {
 
 
       axiosWithAuth()
-      .get("/api/actions/comment")
+      .get("http://salty-hackers-ls.herokuapp.com")
       .then(res =>{
-          console.log(res.data)
+          console.log(res);
+          setValue(res)
       })
       .catch(err => console.error("ERROR", err))
 

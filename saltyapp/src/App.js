@@ -4,6 +4,7 @@ import { Link, Route} from  'react-router-dom';
 import LogIn from './components/LogIn';
 import SignUp  from './components/SignUp';
 import Home from './components/Home';
+import User from './components/User';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
     <Route exact path="/home"> <Home /> </Route>
    <Route exact path="/login"> <LogIn /> </Route>
    <Route exact path="/signup"> <SignUp/> </Route>
+   <Route path="/user"><User /></Route>
 
 
     </div>
