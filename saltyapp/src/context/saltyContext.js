@@ -7,10 +7,10 @@ export const SaltyProvider = (props) => {
 
     const [value, setValue] = useState([]);
 
-    const [credentials, setCredentials] = useState([{
+    const [credentials, setCredentials] = useState({
         username: "",
         password: ""
-    }])
+    })
       
     useEffect(() => {
 
@@ -22,13 +22,10 @@ export const SaltyProvider = (props) => {
       })
       .catch(err => console.error("ERROR", err))
 
-
-
-        
     }, []);
 
     return (
-        <SaltyContext.Provider value={[value, credentials, setCredentials]}>
+        <SaltyContext.Provider value={{value, credentials, setCredentials}}>
             {props.children}
         </SaltyContext.Provider>
     );
