@@ -5,12 +5,27 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 
 export const SaltyProvider = (props) => {
 
-    const [value, setValue] = useState([]);
-
-    const [credentials, setCredentials] = useState({
+    const initialData = {
         username: "",
-        password: ""
-    })
+        commentid: ""
+    }
+
+    // These endpoints are to add a comment to the users saved comments list
+// PUT, 'url.com/api/actions/comment/add' | DELETE, 'url.com/api/actions/comment/delete'
+
+// Required data: commentid: 
+
+const [updateData,  setUpdateData] = useState({
+  username: "example_username",
+  commentid: "example_savedcommentid"
+})
+
+
+const [editData, setEditData] = useState(initialData)
+
+
+
+    const [value, setValue] = useState([]);
       
     useEffect(() => {
 
@@ -25,7 +40,7 @@ export const SaltyProvider = (props) => {
     }, []);
 
     return (
-        <SaltyContext.Provider value={{value, credentials, setCredentials}}>
+        <SaltyContext.Provider value={{value, updateData, setUpdateData, editData, setEditData, initialData}}>
             {props.children}
         </SaltyContext.Provider>
     );
