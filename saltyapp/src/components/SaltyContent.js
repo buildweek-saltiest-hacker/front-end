@@ -1,12 +1,64 @@
-import React, { useEffect, useContext } from 'react';
-import axios from 'axios';
+import React, { useContext } from 'react';
+import axiosWithAuth from '../utils/axiosWithAuth';
 import { SaltyContext } from '../context/saltyContext';
+
 
 
 const SaltyContent = () => {
 
     const updateContext = useContext(SaltyContext);
     
+
+    const editComment = comment => {
+
+        updateContext.editData(true);
+        updateContext.setEditData(comment);
+    }
+
+
+
+    const saveEdit = e => {
+        e.preventDefault();
+    
+    const commentUpdate = updateContext.updateData;
+    
+
+        axiosWithAuth().put(`url.com/api/actions/comment/add/${commentUpdate.commentid}`, commentUpdate)
+    .then(res => {
+        
+    const commentMap = commentUpdate.map(com => {
+      if(com.commentid === commentUpdate.commentid){
+        return res.data.data;
+      }else {return com;}
+    })
+    updateContext.setUpdateData(commentMap)
+    
+    })
+    .catch(err => console.error("ERROR", err.message))
+      };
+    
+      
+      
+      
+      const deleteComment = comment => {
+        // make a delete request to delete this color
+         
+    
+        axiosWithAuth().delete(`url.com/api/actions/comment/delete/${comment.commentid}`)
+    .then(res => {
+     
+      console.log(res);
+    
+     const commentFilter = comment.filter((com) => {
+       return com.commentid !== comment.commentid;
+      })
+      updateContext.setUpdateData(commentFilter);
+     
+    })
+    .catch(err => console.error("ERROR", err.message))
+      };
+    
+
 
     return (
         <div>
