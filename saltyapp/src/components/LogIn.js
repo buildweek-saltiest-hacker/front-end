@@ -1,6 +1,6 @@
-import React, {useState, useContext} from 'react';
-import {SaltyContext} from '../context/saltyContext';
-import {useHistory} from 'react-router-dom';
+import React, {useState} from 'react';
+// import {SaltyContext} from '../context/saltyContext';
+// import {useHistory} from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 
@@ -9,7 +9,7 @@ import axios from 'axios';
 function LogIn (){
 
     const {register, errors } = useForm();
-    const {credentials, setCredentials} = useContext(SaltyContext);
+    // const {credentials, setCredentials} = useContext(SaltyContext);
     const [user, setUser] = useState({
       username:"",
       password: ""

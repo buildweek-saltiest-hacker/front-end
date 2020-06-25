@@ -24,10 +24,9 @@ function App() {
 
 <Switch> 
     <Route exact path="/home" component={Home} /> 
-   <Route exact path="/login" component={LogIn} />
-   <Route component={LogIn} />
-   <Route exact path="/signup" component={SignUp}/> 
-   <User exact path="/user" component={SaltyContent} />
+   <Route path="/login" component={LogIn} />
+   <Route  path="/signup" component={SignUp}/> 
+   <User path="/user" component={SaltyContent} />
 </Switch>
 
     </div>

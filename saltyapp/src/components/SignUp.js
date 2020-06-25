@@ -10,10 +10,6 @@ import { useForm } from "react-hook-form";
     }
     return (
         <div>
-        <header> 
-                <h1> The Salty Hacker </h1>
-    </header>
-   
         
       <div style={{display:"flex", justifyContent:"center"}}>
         <h1 style={{position:"absolute",paddingBottom:"70px", fontSize:"2.5rem"}}> Sign Up</h1>
