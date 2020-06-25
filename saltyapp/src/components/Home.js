@@ -6,7 +6,6 @@ function Home () {
  <div className="container">
 <header>
 <title> Home </title>
-        <h1> The Salty Hacker </h1>
     </header>
    
 

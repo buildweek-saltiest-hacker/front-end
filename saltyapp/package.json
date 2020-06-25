@@ -12,7 +12,8 @@
     "react-hook-form": "^5.7.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "vercel": "^19.1.1"
+    "vercel": "^19.1.1",
+    "w3-css": "^4.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
