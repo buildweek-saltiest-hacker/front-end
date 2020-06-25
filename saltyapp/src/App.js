@@ -14,17 +14,17 @@ function App() {
      <h1> The Salty Hacker </h1>
  </header>
  <nav className="w3-bar">
-         <Link className="w3-bar-item w3-right w3-button w3-red w3-margin" to="/display"> Display</Link>
-         <Link className="w3-bar-item w3-right w3-button w3-red w3-margin" to="/login">Log in</Link>
+         <Link className="w3-bar-item w3-right w3-button w3-red w3-margin" to="/board"> Board</Link>
+         <Link className="w3-bar-item w3-right w3-button w3-red w3-margin" to="/">Log in</Link>
          <Link className="w3-bar-item w3-right w3-button w3-red w3-margin" to="/signup">Sign up</Link>
          <a className="w3-bar-item w3-right w3-button w3-red w3-margin" href="https://the-salty-hacker-marketing.netlify.app/index.html">Home</a>
 
  </nav>
 
 <Switch> 
-   <Route path="/login" component={LogIn} />
+   <Route exact path="/" component={LogIn} />
    <Route  path="/signup" component={SignUp}/> 
-   <Route path="/display"> <Display /> </Route>
+   <Route path="/board"> <Display /> </Route>
    <User path="/user" component={SaltyContent} />
    
 </Switch>
