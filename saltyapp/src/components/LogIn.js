@@ -19,14 +19,14 @@ function LogIn (){
     <header>
 <h1> The Salty Hacker </h1>
     </header>
-    <nav>
+    {/* <nav>
         <ul>
             <Link to="/home"> <li> Home  </li> </Link>
             <Link to="/login"> <li> Log in</li> </Link>
             <Link to="/signup"> <li> Sign up</li> </Link>
 
         </ul>
-    </nav>
+    </nav> */}
 
       <div style={{display:"flex", justifyContent:"center"}}>
         <h1 style={{position:"absolute", paddingBottom:"30%",fontSize:"2.5em"}}> Sign in</h1>
