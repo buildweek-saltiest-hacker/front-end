@@ -26,7 +26,6 @@ function App() {
    <Route  path="/signup" component={SignUp}/> 
    <Route path="/board"> <Display /> </Route>
    <User path="/user" component={SaltyContent} />
-   
 </Switch>
 
     </div>
