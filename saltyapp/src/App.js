@@ -3,7 +3,6 @@ import './App.css';
 import { Link, Route, Switch} from  'react-router-dom';
 import LogIn from './components/LogIn';
 import SignUp  from './components/SignUp';
-import Home from './components/Home';
 import User from './components/User';
 import Display from './components/Display'
 import SaltyContent from './components/SaltyContent';
@@ -14,18 +13,15 @@ function App() {
     <header>
      <h1> The Salty Hacker </h1>
  </header>
- <nav>
-     <ul>
-         <Link to="/home"> <li> Home  </li> </Link>
-         <Link to="/login"> <li> Log in</li> </Link>
-         <Link to="/signup"> <li> Sign up</li> </Link>
-         <Link to="/display"> <li> Display</li> </Link>
+ <nav className="w3-bar">
+         <Link className="w3-bar-item w3-right w3-button w3-red w3-margin" to="/display"> Display</Link>
+         <Link className="w3-bar-item w3-right w3-button w3-red w3-margin" to="/login">Log in</Link>
+         <Link className="w3-bar-item w3-right w3-button w3-red w3-margin" to="/signup">Sign up</Link>
+         <a className="w3-bar-item w3-right w3-button w3-red w3-margin" href="https://the-salty-hacker-marketing.netlify.app/index.html">Home</a>
 
-     </ul>
  </nav>
 
 <Switch> 
-    <Route exact path="/home" component={Home} /> 
    <Route path="/login" component={LogIn} />
    <Route  path="/signup" component={SignUp}/> 
    <Route path="/display"> <Display /> </Route>
