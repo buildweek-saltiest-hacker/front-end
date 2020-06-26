@@ -5,6 +5,7 @@ import LogIn from './components/LogIn';
 import SignUp  from './components/SignUp';
 import User from './components/User';
 import Display from './components/Display'
+import Saved from './components/Saved'
 import SaltyContent from './components/SaltyContent';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
     <header>
      <h1> The Salty Hacker </h1>
  </header>
+
  <nav className="w3-bar">
          <Link className="w3-bar-item w3-right w3-button w3-red w3-margin" to="/board"> Board</Link>
          <Link className="w3-bar-item w3-right w3-button w3-red w3-margin" to="/">Log in</Link>
