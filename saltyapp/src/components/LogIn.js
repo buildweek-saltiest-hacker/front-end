@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 // import {SaltyContext} from '../context/saltyContext';
-// import {useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 
@@ -8,6 +8,7 @@ import axios from 'axios';
 
 function LogIn (){
 
+  const history = useHistory();
     const {register, errors } = useForm();
     // const {credentials, setCredentials} = useContext(SaltyContext);
     const [user, setUser] = useState({
@@ -33,25 +34,19 @@ function LogIn (){
 
   // const history = () => {
   // let history = useHistory();
-  // history.push("/user");
+  // history.push("/u");
   // }
 
   const loginCreds = (credentials) => {  axios.post("https://salty-hackers-ls.herokuapp.com/api/auth/login", credentials)
   .then(res => {
     localStorage.setItem("token", res.data.payload);
-    // history();
+    history.push("/user");
       console.log(res);
   })  
   .catch(err =>
     console.error("bk: Login.js: login: err.message: ", err.message)
   );
- }
-
-
-
-
- 
-    
+ }    
 
 
     return (
