@@ -27,7 +27,7 @@ const [editData, setEditData] = useState(false);
     useEffect(() => {
 
       axiosWithAuth()
-      .get("https://salty-hackers-ls.herokuapp.com")
+      .get(`https://salty-hackers-ls.herokuapp.com/api/actions/comment/${updateData.commentid}`)
       .then(res =>{
           console.log(res);
           setValue(res)

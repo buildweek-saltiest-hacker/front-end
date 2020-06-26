@@ -67,12 +67,22 @@ const SaltyContent = (props) => {
              <div style={{border:"1px solid black", width:"50%", margin:"0 auto"}} className="commentCard">
                <form onSubmit={saveEdit}>
                 <h3>{props.id} </h3>
-                <h3>{props.commentdata}</h3>
-                <button style={{background:"red"}} onClick={() => editComment(props.comment)} > <h6> Save  </h6> </button>
+                <label>
+                    <h3>Comment Editor:</h3>
+                <input className="w3-small" onChange={e =>
+                updateContext.setUpdateData({
+                    ...updateContext.updateData, 
+                    commentid: e.target.value
+                })
+                }
+                value={updateContext.updateData.comment}/> 
+             <button style={{background:"red"}} onClick={() => editComment(props.comment)} > <h6> Save  </h6> </button>
+                 </label>
+                <h3>Saved Comment</h3>
                 </form>
     {/* Placeholder code  */}
         <div className="psuedoCode" style={{border:"1px solid black", width:"50%", margin:"0 auto"}}>
-            <h4>{props.item} </h4>
+            <h4>{props.item}</h4>
             <button style={{background:"red"}}  onClick={e => {
                 e.stopPropagation();
                 deleteComment(props.comment);
@@ -87,7 +97,7 @@ const SaltyContent = (props) => {
 
     return (
        <div>
-         {fakeData.map((item, index) => { return (
+         {updateContext.value.map((item, index) => { return (
          <h1 key={index}> <SavedComments item={item} /></h1>
         ) })}
         </div>
