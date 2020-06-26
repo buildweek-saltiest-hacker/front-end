@@ -6,6 +6,7 @@ import SignUp  from './components/SignUp';
 import Home from './components/Home';
 import User from './components/User';
 import Display from './components/Display'
+import Saved from './components/Saved'
 import SaltyContent from './components/SaltyContent';
 
 function App() {
@@ -19,7 +20,9 @@ function App() {
          <Link to="/home"> <li> Home  </li> </Link>
          <Link to="/login"> <li> Log in</li> </Link>
          <Link to="/signup"> <li> Sign up</li> </Link>
-         <Link to="/display"> <li> Display</li> </Link>
+         <Link to="/display"> <li> Feed </li> </Link>
+         <Link to="/saved"> <li> Saved Comments</li> </Link>
+
 
      </ul>
  </nav>
@@ -29,6 +32,7 @@ function App() {
    <Route path="/login" component={LogIn} />
    <Route  path="/signup" component={SignUp}/> 
    <Route path="/display"> <Display /> </Route>
+   <Route path="/saved"> <Saved /> </Route>
    <User path="/user" component={SaltyContent} />
    
 </Switch>
