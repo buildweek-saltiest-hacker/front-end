@@ -6,9 +6,9 @@ import SignUp  from './components/SignUp';
 import User from './components/User';
 import Display from './components/Display'
 import CommentList from './components/CommentList';
-
 import commentReducer from './context/reducer';
 import SaltyContext from './context/saltyContext';
+import EditComment from './components/EditComment';
 
 
 
@@ -39,7 +39,9 @@ console.log(state)
    <Route exact path="/" component={LogIn} />
    <Route  path="/signup" component={SignUp}/> 
    <Route path="/board"> <Display /> </Route>
-   <User exact path="/user" component={CommentList} />
+   {state.currentComment === null ? (
+        <User exact path="/user" component={CommentList} />
+   ): <EditComment/>}
    <Route component={LogIn} />
 </Switch>
     </div>

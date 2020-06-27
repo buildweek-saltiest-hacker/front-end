@@ -14,6 +14,26 @@ export default function reducer(state, action){
                 ...state,
                 comments: deletedComment
             }
+        case 'UPDATE_COMMENT':
+                const updatedComment = {
+                    ...state.currentComment,
+                    comment: action.payload
+                }
+
+                const updatedComentIndex = state.comments.findIndex(
+                    comment => comment.commentid === state.currentComment.commentid
+                )
+
+                const updatedComments = [
+                    ...state.comments.slice(0, updatedComentIndex),
+                    updatedComment,
+                    ...state.comments.slice(updatedComentIndex + 1)
+                ];
+
+                return {
+                    currentComment: null,
+                    comments: updatedComments
+                }
         default:
             return state;
     }
