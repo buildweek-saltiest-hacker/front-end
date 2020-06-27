@@ -5,6 +5,15 @@ export default function reducer(state, action){
                 ...state,
                 currentComment: action.payload
             }
+        case 'DELETE_COMMENT':
+            const deletedComment = state.comments.filter(
+                com => com.commentid != action.payload
+            );
+
+            return {
+                ...state,
+                comments: deletedComment
+            }
         default:
             return state;
     }
