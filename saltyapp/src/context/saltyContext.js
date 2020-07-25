@@ -1,4 +1,5 @@
 import React, {createContext} from 'react';
+import Axios from 'axios';
 // import axiosWithAuth from '../utils/axiosWithAuth';
 
   const SaltyContext = createContext({
@@ -9,6 +10,7 @@ import React, {createContext} from 'react';
    {comment: "Fake comment3", commentid: 3, score: "200"}
     ] 
 });
+
 
 
 export default SaltyContext;
