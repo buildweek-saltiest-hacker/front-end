@@ -48,7 +48,7 @@ import { useForm } from "react-hook-form";
   
         <form onSubmit={handleSubmit}>
           
-    <input style={{ width:"120%", height:"30px",marginTop:"45%"}} onChange={handleChange} value={signUp.username} type="text" placeholder="Email" name="username" ref={register({required:"Email is a required field", minLength:{value:5, message:"Must be at least 5 characters"}})} />
+    <input style={{ width:"120%", height:"30px",marginTop:"45%"}} onChange={handleChange} value={signUp.username} type="text" placeholder="Username" name="username" ref={register({required:"Username is a required field", minLength:{value:5, message:"Must be at least 5 characters"}})} />
     {errors.email && <p> {errors.email.message}</p>}
   
     <input style={{ width:"120%", height:"30px",marginTop:"10%" }} onChange={handleChange} value={signUp.password} type="password" placeholder="Password" name="password"   ref={register({required:"Password is a required field", minLength:{value:5, message:"Must be at least 5 characters"}})}/>
